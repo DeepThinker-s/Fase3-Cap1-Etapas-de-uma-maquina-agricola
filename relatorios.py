@@ -1,0 +1,120 @@
+import json
+import csv
+from banco import listar_dados
+from datetime import datetime
+from utils import print_table
+
+def gerar_relatorio():
+    """
+    Gera relatórios formatados (TXT e JSON) a partir dos dados de colheita do banco.
+    O relatório TXT é humanamente legível e inclui um sumário.
+    O relatório JSON é estruturado com chaves descritivas.
+    Também exibe uma tabela formatada no console para visualização imediata.
+    """
+    dados_brutos = listar_dados()
+    if not dados_brutos:
+        print("Nenhum dado de colheita encontrado para gerar relatórios.")
+        return
+
+    # --- Preparação dos dados e cálculos para o sumário ---
+    registros_formatados_json = []
+    registros_formatados_tabela = []  # Para exibição em tabulate
+    prejuizo_total = 0
+    soma_percentual_perda = 0
+    contagem_manual = 0
+    contagem_mecanica = 0
+    
+    # Mapeia os índices da tupla do banco para nomes de colunas claros
+    colunas = [
+        "ID", "Tipo de Colheita", "Prod. Estimada (t/ha)", "Prod. Real (t/ha)", 
+        "Valor por Tonelada (R$)", "Perda Percentual (%)", "Prejuízo (R$)", "Data e Hora"
+    ]
+
+    for linha in dados_brutos:
+        # Formata os valores para exibição
+        tipo = str(linha[1]).capitalize()
+        prod_est = f"{linha[2]:.2f}"
+        prod_real = f"{linha[3]:.2f}"
+        valor_ton = f"R$ {linha[4]:,.2f}"
+        perda_perc = f"{linha[5]:.2f}%"
+        prejuizo = f"R$ {linha[6]:,.2f}"
+        
+        # Cria um dicionário para o JSON
+        registro_dict = {
+            colunas[0]: linha[0],
+            colunas[1]: tipo,
+            colunas[2]: prod_est,
+            colunas[3]: prod_real,
+            colunas[4]: valor_ton,
+            colunas[5]: perda_perc,
+            colunas[6]: prejuizo,
+            colunas[7]: linha[7]
+        }
+        registros_formatados_json.append(registro_dict)
+        
+        # Cria uma lista formatada para a tabela
+        registro_tabela = [
+            linha[0], tipo, prod_est, prod_real,
+            valor_ton, perda_perc, prejuizo, linha[7]
+        ]
+        registros_formatados_tabela.append(registro_tabela)
+
+        # Cálculos para o sumário do relatório TXT
+        prejuizo_total += linha[6]
+        soma_percentual_perda += linha[5]
+        if linha[1].lower() == 'manual':
+            contagem_manual += 1
+        elif linha[1].lower() == 'mecanica':
+            contagem_mecanica += 1
+    
+    perda_media = soma_percentual_perda / len(dados_brutos) if dados_brutos else 0
+
+    # --- Geração do Relatório em JSON ---
+    with open("relatorio.json", "w", encoding="utf-8") as f:
+        # O JSON agora é uma lista de objetos com chaves descritivas
+        json.dump(registros_formatados_json, f, ensure_ascii=False, indent=4)
+
+    # --- Geração do Relatório em TXT ---
+    # Exibe a tabela formatada no console
+    print("\n=== REGISTROS DE COLHEITA ===")
+    print_table(colunas, registros_formatados_tabela)
+    print(f"\nTotal de registros: {len(dados_brutos)}")
+    print(f"Média de perda: {perda_media:.2f}%")
+    print(f"Prejuízo total: R$ {prejuizo_total:,.2f}\n")
+
+    # Gera o arquivo CSV com todos os dados
+    with open("relatorio.csv", "w", encoding="utf-8", newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(colunas)  # Cabeçalho
+        writer.writerows(registros_formatados_tabela)  # Dados
+    
+    with open("relatorio.txt", "w", encoding="utf-8") as f:
+        f.write("=========================================================\n")
+        f.write("      RELATÓRIO DE MONITORAMENTO DE PERDAS NA COLHEITA\n")
+        f.write("=========================================================\n")
+        f.write(f"Gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n")
+
+        f.write("------------------ REGISTROS INDIVIDUAIS ------------------\n\n")
+        for reg in registros_formatados_json:
+            f.write(f"{reg['Data e Hora']}\n")
+            f.write(f"  - ID do Registro.........: {reg['ID']}\n")
+            f.write(f"  - Tipo de Colheita.......: {reg['Tipo de Colheita']}\n")
+            f.write(f"  - Prod. Estimada.........: {reg['Prod. Estimada (t/ha)']} t/ha\n")
+            f.write(f"  - Prod. Real.............: {reg['Prod. Real (t/ha)']} t/ha\n")
+            f.write(f"  - Valor por Tonelada.....: {reg['Valor por Tonelada (R$)']}\n")
+            f.write(f"  - Percentual de Perda....: {reg['Perda Percentual (%)']}\n")
+            f.write(f"  - PREJUÍZO FINANCEIRO....: {reg['Prejuízo (R$)']}\n")
+            f.write("---------------------------------------------------------\n\n")
+
+        f.write("===================== SUMÁRIO EXECUTIVO =====================\n\n")
+        f.write(f"Total de Registros de Perda...: {len(dados_brutos)}\n")
+        f.write(f"  - Colheitas Manuais........: {contagem_manual}\n")
+        f.write(f"  - Colheitas Mecânicas......: {contagem_mecanica}\n\n")
+        f.write(f"Média de Perda Percentual.....: {perda_media:.2f}%\n")
+        f.write(f"PREJUÍZO TOTAL ACUMULADO......: R$ {prejuizo_total:,.2f}\n\n")
+        f.write("=========================================================\n")
+
+    print("\nRelatórios gerados com sucesso:")
+    print("- relatorio.json (estruturado para programas)")
+    print("- relatorio.txt  (relatório detalhado para leitura)")
+    print("- relatorio.csv  (planilha para Excel/análises)")

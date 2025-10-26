@@ -1,0 +1,4 @@
+ID,Tipo de Colheita,Prod. Estimada (t/ha),Prod. Real (t/ha),Valor por Tonelada (R$),Perda Percentual (%),Prejuízo (R$),Data e Hora
+21,Manual,11250.00,1.00,R$ 3.00,99.99%,"R$ 33,747.00",2025-10-05 17:37:57
+41,Manual,20000.00,11250.00,R$ 150.00,43.75%,"R$ 1,312,500.00",2025-10-05 17:40:49
+42,Manual,12000.00,11250.00,R$ 150.00,6.25%,"R$ 112,500.00",2025-10-05 17:41:31
