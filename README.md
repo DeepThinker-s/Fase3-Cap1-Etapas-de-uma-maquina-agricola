@@ -40,7 +40,7 @@ Demonstrar, de forma prática e documentada, a importação, consulta e manipula
 - **Sistema de sensores:** ESP32, sensores DHT22, botões NPK, LDR (pH), módulo relé (detalhado na Fase 2)
 - **Códigos de integração:** C/C++ (ESP32) e Python (API clima)
 
-### 4. [Vídeo do projeto]()
+### 4. [Vídeo do projeto](https://youtu.be/w_iDfc6KNrY)
 
 
 ## 📁 Estrutura de pastas
