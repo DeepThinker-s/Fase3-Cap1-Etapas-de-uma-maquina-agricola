@@ -45,5 +45,10 @@ def registrar_colheita():
         "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
-    inserir_dados(dados)
-    print(f"\nColheita registrada! Perda: {perda_percentual}% | Prejuízo: R$ {prejuizo}")
+    # Verifica se a inserção foi bem-sucedida
+    if inserir_dados(dados):
+        print(f"\n[OK] Colheita registrada com sucesso!")
+        print(f"  Perda: {perda_percentual}% | Prejuízo: R$ {prejuizo:,.2f}")
+    else:
+        print("\n[ERRO] Não foi possível salvar os dados da colheita.")
+        print("  Verifique a conexão com o banco de dados.")

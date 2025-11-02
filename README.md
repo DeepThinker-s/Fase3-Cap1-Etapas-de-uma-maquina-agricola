@@ -10,7 +10,7 @@
 
 ## DeepThinker's
 
-## 👨‍🎓 Integrantes: 
+## 👨‍🎓 Integrantes Grupo 11: 
 - <a href="https://www.linkedin.com/in/andrégaidzakian">André Pessoa Gaidzakian - RM567877</a>
 - <a href="https://www.linkedin.com/in/erick-prados-97171a237">Erick Prados Pereira - RM566833</a>
 - <a href="https://www.linkedin.com/in/guilherme-ferreira-santos-94619b23a">Guilherme Ferreira Santos - RM568523</a> 
@@ -137,16 +137,20 @@ O sistema apresentará um menu com as seguintes opções:
 
 #### 📊 Registrar Colheita
 Permite registrar dados de colheita com informações de:
-- ID da fazenda
-- Área colhida (hectares)
-- Perda registrada (kg)
-- Data da colheita
+- Tipo de colheita (manual ou mecânica)
+- Produtividade estimada (t/ha)
+- Produtividade real (t/ha)
+- Valor por tonelada (R$)
+
+**Observação importante:** O sistema **apenas registra perdas**. Se a produtividade real for maior que a estimada (ganho), o sistema informará o usuário e **não salvará** o registro, pois o foco é monitorar perdas agrícolas. Verifique as mensagens de confirmação:
+- [OK] = Dados salvos com sucesso
+- [ERRO] = Problema na conexão/banco de dados
 
 #### 📈 Gerar Relatórios
 Gera relatórios automáticos em três formatos:
-- **JSON** (`document/relatorio.json`)
-- **TXT** (`document/relatorio.txt`)
-- **CSV** (`document/relatorio.csv`)
+- **JSON** (`document/relatorio.json`) - Dados estruturados
+- **TXT** (`document/relatorio.txt`) - Relatório completo com sumário executivo
+- **CSV** (`document/relatorio.csv`) - Planilha para análise
 
 ---
 

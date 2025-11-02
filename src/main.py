@@ -1,5 +1,5 @@
 from src.colheita import registrar_colheita
-from document.relatorios import gerar_relatorio
+from src.relatorios import gerar_relatorio
 import src.banco as banco
 
 def menu():

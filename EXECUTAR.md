@@ -41,24 +41,43 @@ python -m scripts.teste_conexao
 ## Estrutura do Projeto
 
 - **src/** - Código fonte principal
-  - `main.py` - Programa principal com menu
-  - `banco.py` - Conexão e operações com Oracle
-  - `colheita.py` - Registro de colheitas
-
-- **document/** - Documentação e relatórios
-  - `relatorios.py` - Geração de relatórios
-  - Relatórios gerados: `relatorio.json`, `relatorio.txt`, `relatorio.csv`
+  - `main.py` - Programa principal com menu interativo
+  - `banco.py` - Conexão e operações com Oracle Database
+  - `colheita.py` - Registro de colheitas (apenas perdas)
+  - `relatorios.py` - Geração de relatórios em JSON, TXT e CSV
 
 - **scripts/** - Scripts auxiliares
-  - `utils.py` - Funções utilitárias
+  - `utils.py` - Funções utilitárias (validação, formatação de tabelas)
   - `teste_conexao.py` - Teste de conexão com banco
 
 - **config/** - Configurações
   - `.env` - Variáveis de ambiente (não commitar!)
   - `.env.example` - Exemplo de configuração
 
+- **document/** - Documentação complementar
+
+## Funcionalidades
+
+### 1. Registrar Colheita
+O sistema permite registrar dados de perdas na colheita:
+- Tipo (manual ou mecânica)
+- Produtividade estimada e real (t/ha)
+- Valor por tonelada
+
+**Importante:** Apenas registros com **perda** são salvos. Se a produtividade real superar a estimada, o sistema informa que houve ganho e não salva o registro.
+
+### 2. Gerar Relatórios
+Gera automaticamente relatórios em três formatos na pasta `document/`:
+- `relatorio.json` - Dados estruturados
+- `relatorio.txt` - Relatório completo com sumário
+- `relatorio.csv` - Planilha para Excel
+
 ## Notas Importantes
 
 - O arquivo `.env` com credenciais reais **NÃO** deve ser commitado no Git
 - Os relatórios são salvos automaticamente na pasta `document/`
 - Execute sempre a partir da raiz do projeto usando `python -m`
+- O sistema **só registra perdas**: se a produtividade real for maior que a estimada, o registro não é salvo
+- Verifique mensagens de sucesso/erro ao registrar colheitas:
+  - [OK] = dados salvos com sucesso
+  - [ERRO] = problema na conexão ou banco de dados

@@ -71,7 +71,7 @@ def gerar_relatorio():
     perda_media = soma_percentual_perda / len(dados_brutos) if dados_brutos else 0
 
     # Define o diretório para salvar os relatórios (pasta document)
-    diretorio_relatorios = os.path.dirname(__file__)
+    diretorio_relatorios = os.path.join(os.path.dirname(__file__), '..', 'document')
 
     # --- Geração do Relatório em JSON ---
     caminho_json = os.path.join(diretorio_relatorios, "relatorio.json")
@@ -119,7 +119,8 @@ def gerar_relatorio():
         f.write(f"PREJUÍZO TOTAL ACUMULADO......: R$ {prejuizo_total:,.2f}\n\n")
         f.write("=========================================================\n")
 
-    print("\n✓ Relatórios gerados em 'document/':")
-    print("  • relatorio.json (dados estruturados)")
-    print("  • relatorio.txt  (relatório completo)")
-    print("  • relatorio.csv  (planilha)")
+    print("\n[OK] Relatórios gerados com sucesso!")
+    print(f"  Localização: document/")
+    print(f"  - relatorio.json (dados estruturados)")
+    print(f"  - relatorio.txt  (relatório completo)")
+    print(f"  - relatorio.csv  (planilha)")
