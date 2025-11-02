@@ -172,6 +172,40 @@ Gera relatórios automáticos em três formatos:
 
 ---
 
+## 📸 Evidências de Execução
+
+### Evidência 1 - Exportação do relatório no programa
+![Evidência 1](assets/Evidência%20de%20execução%201.png)
+
+### Evidência 2 - Local dos arquivos
+![Evidência 2](assets/Evidência%20de%20execução%202.png)
+
+### Evidência 3 - Conexão com o banco de dados da FIAP via Oracle
+![Evidência 3](assets/Evidência%20de%20execução%203.png)
+
+### Evidência 4 - Conectado e importando dados para a DB
+![Evidência 4](assets/Evidência%20de%20execução%204.png)
+
+### Evidência 5 - Buscando arquivos de registro
+![Evidência 5](assets/Evidência%20de%20execução%205.png)
+
+### Evidência 6 - Verificando dados
+![Evidência 6](assets/Evidência%20de%20execução%206.png)
+
+### Evidência 7 - Criando tabela
+![Evidência 7](assets/Evidência%20de%20execução%207.png)
+
+### Evidência 8 - Confirmando colunas
+![Evidência 8](assets/Evidência%20de%20execução%208.png)
+
+### Evidência 9 - Finalizando exportação
+![Evidência 9](assets/Evidência%20de%20execução%209.png)
+
+### Evidência 10 - Dados importados
+![Evidência 10](assets/Evidência%20de%20execução%2010.png)
+
+---
+
 ### Comandos Úteis
 
 **Verificar versão do Python:**
