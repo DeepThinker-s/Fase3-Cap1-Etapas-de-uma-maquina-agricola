@@ -1,7 +1,7 @@
 """Script para testar conexões e funcionalidades básicas do sistema."""
 import os
-from banco import conectar_oracle, criar_tabela, listar_dados
-from utils import print_table
+from src.banco import conectar_oracle, criar_tabela, listar_dados
+from scripts.utils import print_table
 from dotenv import load_dotenv
 
 def teste_ambiente():

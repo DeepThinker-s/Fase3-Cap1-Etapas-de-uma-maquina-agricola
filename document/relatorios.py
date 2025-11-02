@@ -1,8 +1,9 @@
 import json
 import csv
-from banco import listar_dados
+import os
+from src.banco import listar_dados
 from datetime import datetime
-from utils import print_table
+from scripts.utils import print_table
 
 def gerar_relatorio():
     """
@@ -69,26 +70,30 @@ def gerar_relatorio():
     
     perda_media = soma_percentual_perda / len(dados_brutos) if dados_brutos else 0
 
+    # Define o diretório para salvar os relatórios (pasta document)
+    diretorio_relatorios = os.path.dirname(__file__)
+
     # --- Geração do Relatório em JSON ---
-    with open("relatorio.json", "w", encoding="utf-8") as f:
+    caminho_json = os.path.join(diretorio_relatorios, "relatorio.json")
+    with open(caminho_json, "w", encoding="utf-8") as f:
         # O JSON agora é uma lista de objetos com chaves descritivas
         json.dump(registros_formatados_json, f, ensure_ascii=False, indent=4)
 
     # --- Geração do Relatório em TXT ---
     # Exibe a tabela formatada no console
-    print("\n=== REGISTROS DE COLHEITA ===")
+    print("\n=== REGISTROS ===")
     print_table(colunas, registros_formatados_tabela)
-    print(f"\nTotal de registros: {len(dados_brutos)}")
-    print(f"Média de perda: {perda_media:.2f}%")
-    print(f"Prejuízo total: R$ {prejuizo_total:,.2f}\n")
+    print(f"\nTotal: {len(dados_brutos)} | Perda média: {perda_media:.2f}% | Prejuízo: R$ {prejuizo_total:,.2f}\n")
 
     # Gera o arquivo CSV com todos os dados
-    with open("relatorio.csv", "w", encoding="utf-8", newline='') as f:
+    caminho_csv = os.path.join(diretorio_relatorios, "relatorio.csv")
+    with open(caminho_csv, "w", encoding="utf-8", newline='') as f:
         writer = csv.writer(f)
         writer.writerow(colunas)  # Cabeçalho
         writer.writerows(registros_formatados_tabela)  # Dados
     
-    with open("relatorio.txt", "w", encoding="utf-8") as f:
+    caminho_txt = os.path.join(diretorio_relatorios, "relatorio.txt")
+    with open(caminho_txt, "w", encoding="utf-8") as f:
         f.write("=========================================================\n")
         f.write("      RELATÓRIO DE MONITORAMENTO DE PERDAS NA COLHEITA\n")
         f.write("=========================================================\n")
@@ -114,7 +119,7 @@ def gerar_relatorio():
         f.write(f"PREJUÍZO TOTAL ACUMULADO......: R$ {prejuizo_total:,.2f}\n\n")
         f.write("=========================================================\n")
 
-    print("\nRelatórios gerados com sucesso:")
-    print("- relatorio.json (estruturado para programas)")
-    print("- relatorio.txt  (relatório detalhado para leitura)")
-    print("- relatorio.csv  (planilha para Excel/análises)")
+    print("\n✓ Relatórios gerados em 'document/':")
+    print("  • relatorio.json (dados estruturados)")
+    print("  • relatorio.txt  (relatório completo)")
+    print("  • relatorio.csv  (planilha)")

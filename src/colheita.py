@@ -1,5 +1,5 @@
-from utils import validar_float
-from banco import inserir_dados
+from scripts.utils import validar_float
+from src.banco import inserir_dados
 from datetime import datetime
 
 def calcular_perdas(prod_estimada, prod_real, valor_tonelada):

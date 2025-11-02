@@ -2,7 +2,8 @@ import os
 import oracledb
 from dotenv import load_dotenv
 
-load_dotenv()
+# Carrega o arquivo .env da pasta config
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', 'config', '.env'))
 
 # Carrega variáveis de ambiente com valores padrão para desenvolvimento
 USER = os.environ.get("DB_USER", "SYSTEM")
