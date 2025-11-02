@@ -156,11 +156,11 @@ Gera relatórios automáticos em três formatos:
 
 ### Estrutura de Execução por Fase
 
-#### **Fase 2** - Coleta de Dados com Sensores
+#### **Fase 1** - Coleta de Dados com Sensores
 - Sistema físico com ESP32 e sensores (DHT22, LDR, botões NPK)
 - Código Arduino/C++ para leitura de sensores
 
-#### **Fase 6** - Integração com Oracle Database
+#### **Fase 2** - Integração com Oracle Database
 - Conexão com Oracle Database via `oracledb`
 - CRUD completo de colheitas
 - Geração de relatórios analíticos

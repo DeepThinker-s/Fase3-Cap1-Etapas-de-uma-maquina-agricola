@@ -4,7 +4,22 @@
 - Python 3.8 ou superior
 - Oracle Database (pode ser Oracle XE)
 
-## Instalação
+## Início Rápido 🚀
+
+### Opção 1: Script Automático (RECOMENDADO)
+```powershell
+.\iniciar.ps1
+```
+**Este script faz tudo automaticamente:**
+- ✓ Cria o ambiente virtual (se não existir)
+- ✓ Ativa o ambiente virtual
+- ✓ Instala todas as dependências
+- ✓ Verifica se o `.env` está configurado
+- ✓ Inicia o sistema
+
+**Apenas certifique-se de configurar o `config\.env` antes!**
+
+### Opção 2: Instalação Manual
 
 1. **Clone o repositório e navegue até a pasta:**
    ```powershell
@@ -25,6 +40,11 @@
 4. **Configure o banco de dados:**
    - Edite o arquivo `config/.env` com suas credenciais Oracle
    - Use o arquivo `config/.env.example` como referência
+
+5. **Execute o sistema:**
+   ```powershell
+   python -m src.main
+   ```
 
 ## Executando o Projeto
 

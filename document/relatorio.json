@@ -4,9 +4,9 @@
         "Tipo de Colheita": "Manual",
         "Prod. Estimada (t/ha)": "11250.00",
         "Prod. Real (t/ha)": "1.00",
-        "Valor por Tonelada (R$)": "R$ 3.00",
-        "Perda Percentual (%)": "99.99%",
-        "Prejuízo (R$)": "R$ 33,747.00",
+        "Valor por Tonelada (R$)": "3.00",
+        "Perda Percentual (%)": "99.99",
+        "Prejuízo (R$)": "33747.00",
         "Data e Hora": "2025-10-05 17:37:57"
     },
     {
@@ -14,9 +14,9 @@
         "Tipo de Colheita": "Manual",
         "Prod. Estimada (t/ha)": "20000.00",
         "Prod. Real (t/ha)": "11250.00",
-        "Valor por Tonelada (R$)": "R$ 150.00",
-        "Perda Percentual (%)": "43.75%",
-        "Prejuízo (R$)": "R$ 1,312,500.00",
+        "Valor por Tonelada (R$)": "150.00",
+        "Perda Percentual (%)": "43.75",
+        "Prejuízo (R$)": "1312500.00",
         "Data e Hora": "2025-10-05 17:40:49"
     },
     {
@@ -24,9 +24,29 @@
         "Tipo de Colheita": "Manual",
         "Prod. Estimada (t/ha)": "12000.00",
         "Prod. Real (t/ha)": "11250.00",
-        "Valor por Tonelada (R$)": "R$ 150.00",
-        "Perda Percentual (%)": "6.25%",
-        "Prejuízo (R$)": "R$ 112,500.00",
+        "Valor por Tonelada (R$)": "150.00",
+        "Perda Percentual (%)": "6.25",
+        "Prejuízo (R$)": "112500.00",
         "Data e Hora": "2025-10-05 17:41:31"
+    },
+    {
+        "ID": 61,
+        "Tipo de Colheita": "Mecanica",
+        "Prod. Estimada (t/ha)": "100.00",
+        "Prod. Real (t/ha)": "85.00",
+        "Valor por Tonelada (R$)": "200.00",
+        "Perda Percentual (%)": "15.00",
+        "Prejuízo (R$)": "3000.00",
+        "Data e Hora": "2025-11-02 18:51:26"
+    },
+    {
+        "ID": 81,
+        "Tipo de Colheita": "Manual",
+        "Prod. Estimada (t/ha)": "1200.00",
+        "Prod. Real (t/ha)": "560.00",
+        "Valor por Tonelada (R$)": "90.00",
+        "Perda Percentual (%)": "53.33",
+        "Prejuízo (R$)": "57600.00",
+        "Data e Hora": "2025-11-02 19:30:10"
     }
 ]

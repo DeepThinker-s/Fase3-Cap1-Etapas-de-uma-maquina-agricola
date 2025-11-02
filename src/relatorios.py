@@ -27,8 +27,14 @@ def gerar_relatorio():
     
     # Mapeia os índices da tupla do banco para nomes de colunas claros
     colunas = [
-        "ID", "Tipo de Colheita", "Prod. Estimada (t/ha)", "Prod. Real (t/ha)", 
-        "Valor por Tonelada (R$)", "Perda Percentual (%)", "Prejuízo (R$)", "Data e Hora"
+        "ID",
+        "PROD_ESTIMADA",
+        "TIPO_COLHEITA",
+        "PROD_REAL",
+        "VALOR_POR_TONELADA",
+        "PERDA_PERCENTUAL",
+        "PREJUIZO",
+        "DATA_HORA"
     ]
 
     for linha in dados_brutos:
@@ -36,26 +42,26 @@ def gerar_relatorio():
         tipo = str(linha[1]).capitalize()
         prod_est = f"{linha[2]:.2f}"
         prod_real = f"{linha[3]:.2f}"
-        valor_ton = f"R$ {linha[4]:,.2f}"
-        perda_perc = f"{linha[5]:.2f}%"
-        prejuizo = f"R$ {linha[6]:,.2f}"
-        
-        # Cria um dicionário para o JSON
+        valor_ton = f"{linha[4]:.2f}"
+        perda_perc = f"{linha[5]:.2f}"
+        prejuizo = f"{linha[6]:.2f}"
+
+        # Cria um dicionário para o JSON com nomes descritivos
         registro_dict = {
-            colunas[0]: linha[0],
-            colunas[1]: tipo,
-            colunas[2]: prod_est,
-            colunas[3]: prod_real,
-            colunas[4]: valor_ton,
-            colunas[5]: perda_perc,
-            colunas[6]: prejuizo,
-            colunas[7]: linha[7]
+            "ID": linha[0],
+            "Tipo de Colheita": tipo,
+            "Prod. Estimada (t/ha)": prod_est,
+            "Prod. Real (t/ha)": prod_real,
+            "Valor por Tonelada (R$)": valor_ton,
+            "Perda Percentual (%)": perda_perc,
+            "Prejuízo (R$)": prejuizo,
+            "Data e Hora": linha[7]
         }
         registros_formatados_json.append(registro_dict)
-        
+
         # Cria uma lista formatada para a tabela
         registro_tabela = [
-            linha[0], tipo, prod_est, prod_real,
+            linha[0], prod_est, tipo, prod_real,
             valor_ton, perda_perc, prejuizo, linha[7]
         ]
         registros_formatados_tabela.append(registro_tabela)
