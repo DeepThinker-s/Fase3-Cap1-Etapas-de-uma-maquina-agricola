@@ -24,19 +24,19 @@
 
 ## 📜 Descrição
 
-1. Introdução
+### 1. Introdução
 O agronegócio brasileiro é um dos setores mais dinâmicos e estratégicos da economia nacional, representando cerca de 27% do PIB (IBGE, 2024). A modernização do campo, impulsionada por tecnologias digitais, sensores e automação, permite ganhos de produtividade, sustentabilidade e eficiência. Neste contexto, a FarmTech Solutions, startup fictícia, desenvolveu um sistema de monitoramento e automação agrícola, integrando sensores ambientais, lógica de decisão e banco de dados Oracle para armazenamento e análise dos dados coletados.
 Este relatório detalha o processo de importação dos dados coletados na Fase 2 para o Oracle SQL Developer, explorando as etapas, boas práticas e evidências do funcionamento do sistema.
 
-2. Objetivo
+### 2. Objetivo
 Demonstrar, de forma prática e documentada, a importação, consulta e manipulação dos dados agrícolas simulados (Fase 2) em um banco de dados Oracle, utilizando o Oracle SQL Developer, conforme orientações do PBL do curso de Inteligência Artificial.
 
-3. Materiais Utilizados
-Base de dados: dados_agro.xlsx (simulada a partir de dados plausíveis do agro brasileiro, conforme CONAB, IBGE, Embrapa, etc.)
-Ferramenta de banco de dados: Oracle SQL Developer
-Documentação e códigos: Repositório GitHub do grupo
-Sistema de sensores: ESP32, sensores DHT22, botões NPK, LDR (pH), módulo relé (detalhado na Fase 2)
-Códigos de integração: C/C++ (ESP32) e Python (API clima)
+### 3. Materiais Utilizados
+- **Base de dados:** dados_agro.xlsx (simulada a partir de dados plausíveis do agro brasileiro, conforme CONAB, IBGE, Embrapa, etc.)
+- **Ferramenta de banco de dados:** Oracle SQL Developer
+- **Documentação e códigos:** Repositório GitHub do grupo
+- **Sistema de sensores:** ESP32, sensores DHT22, botões NPK, LDR (pH), módulo relé (detalhado na Fase 2)
+- **Códigos de integração:** C/C++ (ESP32) e Python (API clima)
 
 
 ## 📁 Estrutura de pastas
