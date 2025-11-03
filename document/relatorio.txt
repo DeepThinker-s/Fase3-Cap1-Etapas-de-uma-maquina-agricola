@@ -1,9 +1,19 @@
 =========================================================
       RELATÓRIO DE MONITORAMENTO DE PERDAS NA COLHEITA
 =========================================================
-Gerado em: 02/11/2025 19:32:10
+Gerado em: 02/11/2025 20:40:31
 
 ------------------ REGISTROS INDIVIDUAIS ------------------
+
+2025-11-02 20:28:22
+  - ID do Registro.........: 82
+  - Tipo de Colheita.......: Manual
+  - Prod. Estimada.........: 19.00 t/ha
+  - Prod. Real.............: 1.00 t/ha
+  - Valor por Tonelada.....: 21.00
+  - Percentual de Perda....: 94.74
+  - PREJUÍZO FINANCEIRO....: 378.00
+---------------------------------------------------------
 
 2025-10-05 17:37:57
   - ID do Registro.........: 21
@@ -57,11 +67,11 @@ Gerado em: 02/11/2025 19:32:10
 
 ===================== SUMÁRIO EXECUTIVO =====================
 
-Total de Registros de Perda...: 5
-  - Colheitas Manuais........: 4
+Total de Registros de Perda...: 6
+  - Colheitas Manuais........: 5
   - Colheitas Mecânicas......: 1
 
-Média de Perda Percentual.....: 43.66%
-PREJUÍZO TOTAL ACUMULADO......: R$ 1,519,347.00
+Média de Perda Percentual.....: 52.18%
+PREJUÍZO TOTAL ACUMULADO......: R$ 1,519,725.00
 
 =========================================================

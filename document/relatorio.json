@@ -1,5 +1,15 @@
 [
     {
+        "ID": 82,
+        "Tipo de Colheita": "Manual",
+        "Prod. Estimada (t/ha)": "19.00",
+        "Prod. Real (t/ha)": "1.00",
+        "Valor por Tonelada (R$)": "21.00",
+        "Perda Percentual (%)": "94.74",
+        "Prejuízo (R$)": "378.00",
+        "Data e Hora": "2025-11-02 20:28:22"
+    },
+    {
         "ID": 21,
         "Tipo de Colheita": "Manual",
         "Prod. Estimada (t/ha)": "11250.00",

@@ -40,7 +40,7 @@ Demonstrar, de forma prática e documentada, a importação, consulta e manipula
 - **Sistema de sensores:** ESP32, sensores DHT22, botões NPK, LDR (pH), módulo relé (detalhado na Fase 2)
 - **Códigos de integração:** C/C++ (ESP32) e Python (API clima)
 
-### 4. [Vídeo do projeto]()
+### 4. [Vídeo do projeto](https://youtu.be/w_iDfc6KNrY)
 
 
 ## 📁 Estrutura de pastas
@@ -80,9 +80,11 @@ Antes de executar o projeto, certifique-se de ter instalado:
 
 ### Passo 1: Clonar o Repositório
 
+```bash
+git clone https://github.com/DeepThinker-s/Fase3-Cap1-Etapas-de-uma-maquina-agricola
+```
 ```powershell
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio/Fase6Modificada
+cd Fase3-Cap1-Etapas-de-uma-maquina-agricola
 ```
 
 ### Passo 2: Configurar Ambiente Virtual
